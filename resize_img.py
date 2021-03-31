@@ -8,7 +8,16 @@ source_folder_path = os.path.join(root_folder, "source_imgs")
 os.chdir(source_folder_path)
 
 # collect all images name
-imgs_name =  os.listdir(source_folder_path)
+file_names = os.listdir(source_folder_path)
+
+# check image filename extend
+extend_names = (".jpg", ".jpeg", ".png")
+valid_file = [
+    file_name
+    for file_name in file_names
+    if any([file_name.endswith(extend_name) for extend_name in extend_names])
+]
+invalid_file = [file_name for file_name in file_names if file_name not in valid_file]
 
 # resize image
 img_name = "3.jpg"
